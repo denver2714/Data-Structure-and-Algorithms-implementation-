@@ -1,0 +1,3 @@
+Why is the image and code different, right child +1 but in the code
++2, it's because we made the vector to have an index of 0 whilst in the image
+we occupied the 0
