@@ -16,19 +16,16 @@ std::string reverseString(const std::string& str){
         stk.pop(); // Remove the top character from the stack
     }
 
-    return reversedStr; // Return the reversed string
+    return reversedStr;
 
 }
 
-void printString(const std::string& str) { // Pass by reference for efficiency
-    std::cout << str << std::endl; // Print the string
-}
 
 int main() {
-    std::string str = "hello"; // Correct way to initialize a string
+    std::string str = "hello";
     std::cout << "Original: " << str << "\n";
-    std::string reversedStr = reverseString(str); // Call the reverse function
+    std::string reversedStr = reverseString(str);
     std::cout << "Reversed: ";
-    std::cout << reversedStr << "\n"; // Print the reversed string using the printStack function
+    std::cout << reversedStr << "\n"; 
     return 0;
 }

@@ -8,7 +8,6 @@ struct Node
 
     Node(int value): value(value), left(nullptr), right(nullptr){}
 
-
 };
 
 class BinarySearchTree {
@@ -24,15 +23,15 @@ public:
         if(root == nullptr){root = newNode; return true;}
         Node* temp = root;
         while(true){
-            if(newNode->value == temp->value) return false;
-            if(newNode->value < temp->value){
-                if(temp->left == nullptr){
+            if(newNode->value == temp->value) return false; // Doesn't allow duplicate values
+            if(newNode->value < temp->value){ // If our new node is less then we put to the left
+                if(temp->left == nullptr){ //If the left child is a nullptr of the current node, then we put it there
                     temp->left = newNode;
                     return true;
                 }
-                temp = temp->left;
+                temp = temp->left; //Otherwise we move to the left
             }
-            else{
+            else{ // If our new node is greater then we put it to the right
                 if(temp->right == nullptr){
                     temp->right = newNode;
                     return true;
