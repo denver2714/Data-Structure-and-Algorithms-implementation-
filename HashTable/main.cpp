@@ -27,7 +27,7 @@ public:
             }
         }
     
-    int hash(std::string key){
+    int hash(std::string key){ //hashing function
         int hash = 0;
         for(int i = 0; i < key.length(); i++){
             int asciivalue = int(key[i]);
