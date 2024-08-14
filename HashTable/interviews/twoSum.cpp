@@ -1,25 +1,34 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
-std::vector<int> twoSum(std::vector<int>& nums, int target) { // The O(n^2)
-        for(int i = 0; i < nums.size(); i++){
-            for(int j = i+1; j < nums.size(); j++){
-                if(nums[i] + nums[j] == target) return {i, j};
-            }
+std::vector<int> twoSum(const std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> prevMap; // value : index
+    
+    for (int i = 0; i < nums.size(); ++i) {
+        int diff = target - nums[i];
+        
+        if (prevMap.find(diff) != prevMap.end()) {
+            return {prevMap[diff], i}; // Return indices if the solution is found
         }
-        return {};
+        
+        prevMap[nums[i]] = i; // Store the index of the current number
     }
-
-
+    
+    return {}; // Return an empty vector if no solution is found
+}
 
 int main() {
-    std::vector<int> n = {2,7,11,15};
+    std::vector<int> nums = {2, 7, 11, 15};
     int target = 9;
-
-    std::vector<int> result = twoSum(n, target);
-    for(int i: result){
-        std::cout << i << " ";
     
+    std::vector<int> result = twoSum(nums, target);
+    
+    if (!result.empty()) {
+        std::cout << "Indices: " << result[0] << ", " << result[1] << std::endl;
+    } else {
+        std::cout << "No solution found." << std::endl;
     }
-
+    
+    return 0;
 }
